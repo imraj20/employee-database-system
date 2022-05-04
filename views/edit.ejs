@@ -1,0 +1,61 @@
+<%- include('partials/header') -%>
+
+    <div class="container mt-5 w-50">
+
+        <h2 class="mb-4">Update Employee Data</h2>
+
+        <form action="/edit/<%= employee.id %>?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
+
+            <input type="text" value="<%= employee.name %>" name="name" class="form-control"
+                placeholder="Employee Name">
+
+            <input type="text" value="<%= employee.emp %>" name="emp" class="form-control" placeholder="Employee ID">
+
+            <select class="mt-3" value="<%= employee.gender %>" name="gender" id="gender">
+                <option value="GENDER">CHOOSE GENDER</option>
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+                <option value="OTHER">OTHER</option>
+            </select>
+
+            <input type="text" value="<%= employee.dob %>" name="dob" class="form-control" placeholder="DOB">
+
+            <select class="mt-3" value="<%= employee.highest_qualification %>" name="highest_qualification"
+                id="highest_qualification">
+                <option value="QUALIFICATION">CHOOSE QUALIFICATION</option>
+                <option value="B.E./B.Tech">B.E./B.Tech</option>
+                <option value="M.E./M.Tech">M.E./M.Tech</option>
+                <option value="PhD">PhD</option>
+            </select>
+
+            <input value="<%= employee.doj %>" type="text" name="doj" class="form-control" placeholder="DOJ">
+
+            <select class="mt-3" value="<%= employee.department %>" name="department" id="department">
+                <option value="DEPARTMENT">CHOOSE DEPARTMENT</option>
+                <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+                <option value="COMPUTER ENGINEERING">COMPUTER ENGINEERING</option>
+                <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+                <option value="MECHATRONICS ENGINEERING">MECHATRONICS ENGINEERING</option>
+                <option value="ELECTRICAL ENGINEERING">ELECTRICAL ENGINEERING</option>
+                <option value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science
+                </option>
+                <option value="Computer Science And Design">Computer Science And Design</option>
+                <option value="Humanities And Applied Sciences">Humanities And Applied Sciences</option>
+            </select>
+
+            <input value="<%= employee.total_experience %>" type="text" name="total_experience" class="form-control"
+                placeholder="Total Experience">
+
+            <input type="text" value="<%= employee.designation %>" name="designation" class="form-control"
+                placeholder="Employee Designation">
+
+            <input type="text" value="<%= employee.salary %>" name="salary" class="form-control"
+                placeholder="Employee Salary">
+
+            <button type="submit" class="btn btn-danger btn-block mt-3">Update Employee</button>
+
+        </form>
+    </div>
+
+    <%- include('partials/footer') -%>

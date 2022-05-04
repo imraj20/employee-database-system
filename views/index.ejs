@@ -1,0 +1,83 @@
+<%- include('partials/header') -%>
+
+    <div class="container-lg mx-3 mt-5">
+        <%- include('partials/messages') -%>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>GENDER</th>
+                        <th>DOB </th>
+                        <th>Qualification</th>
+                        <th>DOJ</th>
+                        <th>DEPARTMENT</th>
+                        <th>EXPERIENCE</th>
+                        <th>Designation</th>
+
+                        <th>Operations</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>GENDER</th>
+                        <th>DOB </th>
+                        <th>Qualification</th>
+                        <th>DOJ</th>
+                        <th>DEPARTMENT</th>
+                        <th>EXPERIENCE</th>
+                        <th>Designation</th>
+
+                        <th>Operations</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <% employees.forEach((employee)=> { %>
+                        <tr>
+                            <td>
+                                <%= employee.name %>
+                            </td>
+                            <td>
+                                <%= employee.emp %>
+                            </td>
+                            <td>
+                                <%= employee.gender %>
+                            </td>
+                            <td>
+                                <%= employee.dob %>
+                            </td>
+                            <td>
+                                <%= employee.highest_qualification %>
+                            </td>
+                            <td>
+                                <%= employee.doj %>
+                            </td>
+                            <td>
+                                <%= employee.department %>
+                            </td>
+                            <td>
+                                <%= employee.total_experience %>
+                            </td>
+                            <td>
+                                <%= employee.designation %>
+                            </td>
+
+                            <td>
+                                <a class="btn btn-primary" href="/edit/<%= employee.id %>">Edit</a>
+                                <form style="display: inline;" action="/delete/<%= employee.id %>?_method=DELETE"
+                                    method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button style="cursor: pointer;" type="submit"
+                                        class="btn btn-danger ml-2">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+
+
+                </tbody>
+            </table>
+    </div>
+    <%- include('partials/footer') -%>
